@@ -6,6 +6,7 @@ export const CardContainer = styled.div`
   align-items: flex-start;
   width: 100%;
   gap: 2rem;
+  margin-top: 1.5rem;
 `;
 
 export const CardContainerWrapper = styled.div`
@@ -19,6 +20,10 @@ export const CardImageWrapper = styled.div`
   overflow: hidden;
   height: 195px;
   border-radius: .5rem;
+  
+  @media(min-width: 850px) {
+    height: 305px;
+  }
 `;
 
 export const CardImage = styled.picture`
@@ -29,7 +34,12 @@ export const CardImage = styled.picture`
     height: 300px;
     background-position: top;
     background-size: cover;
+    
+    @media(min-width: 850px) {
+      top: 0;
+    }
   }
+  
 `;
 
 export const CardButton = styled.button`
@@ -46,6 +56,10 @@ export const CardButton = styled.button`
   background-color: var(--rose50);
   white-space: nowrap;
   border: 1px solid var(--rose300);
+
+  @media(min-width: 850px) {
+    /* position: initial; */
+  }
 `;
 
 export const CardDescription = styled.div`

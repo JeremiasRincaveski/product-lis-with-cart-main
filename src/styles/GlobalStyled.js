@@ -12,7 +12,9 @@ const GlobalStyled = createGlobalStyle`
     --rose900: hsl(14, 65%, 9%);
   }
 
-  * {
+  *,
+  *::after,
+  *::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -20,7 +22,10 @@ const GlobalStyled = createGlobalStyle`
   }
 
   #root {
+    background-color: hsl(20, 50%, 98%);
     width: 100vw;
+    display: flex;
+    justify-content: center;
   }
 `;
 

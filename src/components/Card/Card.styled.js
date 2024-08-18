@@ -21,7 +21,7 @@ export const CardImageWrapper = styled.div`
   height: 195px;
   border-radius: .5rem;
   
-  @media(min-width: 1024px) {
+  @media(min-width: 1300px) {
     height: 305px;
   }
 `;
@@ -35,7 +35,7 @@ export const CardImage = styled.picture`
     background-position: top;
     background-size: cover;
     
-    @media(min-width: 1024px) {
+    @media(min-width: 1300px) {
       top: 0;
     }
   }

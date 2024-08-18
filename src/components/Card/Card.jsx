@@ -1,7 +1,10 @@
 import { CardButton, CardContainer, CardDescription, CardImage, CardImageWrapper, CardPrice, CardCategory, CardName, CardContainerWrapper } from "./Card.styled";
 import { ReactComponent as Icone} from './../../assets/icons/icon-add-to-cart.svg'
+import useItems from '../../hooks/useItems';
 
 const Card = ({ deserts }) => {
+  const { items, adicionaItem, removerItem, removerQnt } = useItems();
+
   return ( 
     <>
       {deserts.map(desert => {
@@ -17,7 +20,9 @@ const Card = ({ deserts }) => {
                 </CardImage>
               </CardImageWrapper>
               
-              <CardButton><Icone />Add to Cart</CardButton>
+              <CardButton
+                onClick={() => adicionaItem(desert)}
+              ><Icone />Add to Cart</CardButton>
             </CardContainerWrapper>
 
             <CardDescription>

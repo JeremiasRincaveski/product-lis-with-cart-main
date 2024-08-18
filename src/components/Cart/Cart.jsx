@@ -1,14 +1,36 @@
-import { useState } from "react";
-import { CartContainer, CartEmpty, CartTitle } from "./Cart.jtyled";
+import { CartCarbonNeutral, CartCarbonNeutralDescription, CartConfirmOrder, CartContainer, CartEmpty, CartPrice, CartSpan, CartTitle, CartWrapper } from "./Cart.jtyled";
+import useItems from "../../hooks/useItems";
+import Carts from "../Carts/Carts";
+import { ReactComponent as Tree }  from "../../assets/icons/icon-carbon-neutral.svg";
 
 const Cart = () => {
-  const [countCarts, setCountCarts] = useState(0);
+  const { items } = useItems();
 
   return ( 
     <CartContainer>
-      <CartTitle>Your Cart ({countCarts})</CartTitle>
-      {countCarts > 0 ?
-         <span>sucesso</span> 
+      <CartTitle>Your Cart ({items.length})</CartTitle>
+      {items.length > 0 ? 
+        <>
+          {items.map(item => <Carts item={item} />)}
+          <CartWrapper>
+            <CartSpan>Order Total</CartSpan>
+            
+            <CartPrice>
+              {items.reduce((acc, cur) => {
+                return acc + (cur.preco * cur.qnt);
+              }, 0).toFixed(2)}
+            </CartPrice>
+
+          </CartWrapper>
+          <CartCarbonNeutral>
+            <Tree />
+            <CartCarbonNeutralDescription>This is a <span>carbon-neutral</span> delivery</CartCarbonNeutralDescription>
+          </CartCarbonNeutral>
+
+          <CartConfirmOrder>
+            Confirm Order
+          </CartConfirmOrder>
+        </>
         : 
           <CartEmpty />
       }

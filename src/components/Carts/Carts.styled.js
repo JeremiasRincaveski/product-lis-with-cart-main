@@ -47,9 +47,14 @@ export const CartsPrecoTotal = styled.span`
 export const CartsButton = styled.button`
   position: absolute;
   top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   right: 0;
   background-color: transparent;
   border: 1px solid var(--rose400);
   border-radius: 100%;
   width: 1.1rem;
+  height: 1.1rem;
 `;

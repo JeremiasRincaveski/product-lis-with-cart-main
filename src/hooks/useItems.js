@@ -6,7 +6,7 @@ const useItems = () => {
 
   const adicionaItem = (item) => {
     // Valida se tem o item cadastrado, se tiver ele soma senão ele adiciona
-    const isItemCadastrado = items.some(prevItem => prevItem.nome === item.name);
+    const isItemCadastrado = items?.some(prevItem => prevItem.nome === item.name) ? true : false;
     
     if (isItemCadastrado) {
       adicionaQnt(item.name);
@@ -18,8 +18,11 @@ const useItems = () => {
         preco,
         qnt: 1
       };
-
-      setItems([ ...items, novoItem ]);
+      if (items.length > 0) {
+        setItems([ ...items, novoItem ]);
+      } else {
+        setItems([novoItem])
+      }
     }
   };
 
@@ -28,7 +31,10 @@ const useItems = () => {
   };
 
   const validaQnt = () => {
-    setItems(prevItems => prevItems.filter(item => item.qnt > 0));
+    setItems(prevItems => {
+      if (!prevItems) return []
+      return prevItems.filter(item => item.qnt > 0)
+    });
   };
 
   const adicionaQnt = nome => {
@@ -40,11 +46,11 @@ const useItems = () => {
   };
 
   const removerQnt = nome => {
-    setItems(novoItem => {
+    setItems(novoItem =>
       novoItem.map(item =>
         item.nome === nome ? { ...item, qnt: item.qnt - 1 } : item
-      );
-    });
+      )
+    );
     validaQnt();
   };
 

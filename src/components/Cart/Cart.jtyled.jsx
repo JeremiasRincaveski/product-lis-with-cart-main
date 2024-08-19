@@ -49,7 +49,6 @@ export const CartCarbonNeutral = styled.div`
 `;
 
 export const CartCarbonNeutralDescription = styled.span`
-
   span {
     font-weight: 600;
   }

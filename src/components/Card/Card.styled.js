@@ -12,6 +12,7 @@ export const CardContainer = styled.div`
 export const CardContainerWrapper = styled.div`
   width: 100%;
   position: relative;
+  outline: ${({$qntMaiorQueZero}) => $qntMaiorQueZero ? "1px solid red" : 'none'};
 `;
 
 export const CardImageWrapper = styled.div`
@@ -20,9 +21,10 @@ export const CardImageWrapper = styled.div`
   overflow: hidden;
   height: 195px;
   border-radius: .5rem;
+  outline: ${({$qntMaiorQueZero}) => $qntMaiorQueZero ? "2px solid red" : 'none'};
   
   @media(min-width: 1300px) {
-    height: 305px;
+    height: 300px;
   }
 `;
 
@@ -49,13 +51,25 @@ export const CardButton = styled.button`
   transform: translateX(-50%);
   display: flex;
   align-items: center;
+  justify-content: ${({$isSelect}) => $isSelect ? 'space-between' : 'center'};
+  color: ${({$isSelect}) => $isSelect ? 'white' : 'black'};
   gap: .5rem;
   font-weight: 600;
   padding: .5rem 1rem;
   border-radius: 3rem;
-  background-color: var(--rose50);
+  background-color: ${({$isSelect}) => $isSelect ? 'var(--red)' : 'var(--rose50)'};
   white-space: nowrap;
-  border: 1px solid var(--rose300);
+  border: ${({$isSelect}) => $isSelect ? 'none' : '1px solid var(--rose300)'};
+  width: 150px;
+
+
+  svg.isSelect {
+    border: 1px solid white;
+    width: 18px;
+    height: 18px;
+    padding: 3px;
+    border-radius: 100%;
+  }
 `;
 
 export const CardDescription = styled.div`

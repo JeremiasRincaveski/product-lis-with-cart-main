@@ -1,9 +1,11 @@
 import { CardButton, CardContainer, CardDescription, CardImage, CardImageWrapper, CardPrice, CardCategory, CardName, CardContainerWrapper } from "./Card.styled";
-import { ReactComponent as Icone} from './../../assets/icons/icon-add-to-cart.svg'
 import useItems from '../../hooks/useItems';
+import { ReactComponent as Icone} from './../../assets/icons/icon-add-to-cart.svg';
+import { ReactComponent as Decrement } from "../../assets/icons/icon-decrement-quantity.svg";
+import { ReactComponent as Increment } from "../../assets/icons/icon-increment-quantity.svg";
 
 const Card = ({ deserts }) => {
-  const { items, adicionaItem, removerItem, removerQnt } = useItems();
+  const { items, adicionaItem, removerQnt } = useItems();
 
   return ( 
     <>
@@ -11,7 +13,7 @@ const Card = ({ deserts }) => {
         return (
           <CardContainer key={desert.name}>
             <CardContainerWrapper>              
-              <CardImageWrapper>
+              <CardImageWrapper $qntMaiorQueZero={items?.some(item => item.nome === desert.name)}>
                 <CardImage>
                 <source srcSet={desert.image.desktop} media="(min-width: 1024px)" />
                 <source srcSet={desert.image.tablet} media="(max-width: 1024px)" />
@@ -21,8 +23,31 @@ const Card = ({ deserts }) => {
               </CardImageWrapper>
               
               <CardButton
-                onClick={() => adicionaItem(desert)}
-              ><Icone />Add to Cart</CardButton>
+                $isSelect={items?.find(item => item.nome === desert.name)?.qnt > 0 ? true : false}
+                
+              >
+                {items?.some(item => item.nome === desert.name && item.qnt > 0) ? 
+                  (<>
+                    <Decrement 
+                      className="isSelect" 
+                      onClick={() => removerQnt(desert.name)}
+                    />
+                    {items.find(item => item.nome === desert.name).qnt}
+                    <Increment
+                     className="isSelect"
+                     onClick={() => adicionaItem(desert)}
+                    />
+                  </>)
+                  :
+                  (<>
+                    <span
+                      onClick={() => adicionaItem(desert)}
+                    >
+                      <Icone />Add to Cart
+                    </span>
+                  </>)
+                }
+              </CardButton>
             </CardContainerWrapper>
 
             <CardDescription>

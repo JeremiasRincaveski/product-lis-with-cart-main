@@ -8,8 +8,8 @@ const Cart = () => {
 
   return ( 
     <CartContainer>
-      <CartTitle>Your Cart ({items.length})</CartTitle>
-      {items.length > 0 ? 
+      <CartTitle>Your Cart ({items?.length})</CartTitle>
+      {items?.length > 0 ? 
         <>
           {items.map(item => <Carts item={item} />)}
           <CartWrapper>

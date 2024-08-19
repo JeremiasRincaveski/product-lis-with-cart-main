@@ -62,6 +62,11 @@ export const CardButton = styled.button`
   border: ${({$isSelect}) => $isSelect ? 'none' : '1px solid var(--rose300)'};
   width: 150px;
 
+  span {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
 
   svg.isSelect {
     border: 1px solid white;

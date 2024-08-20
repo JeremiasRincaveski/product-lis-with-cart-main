@@ -1,4 +1,4 @@
-import { CartsButton, CartsContainer, CartsName, CartsPrecoTotal, CartsPrecoUnitario, CartsQnt, CartsWrapper } from "./Carts.styled";
+import { CartsButton, CartsContainer, CartsNome, CartsPrecoTotal, CartsPrecoUnitario, CartsQnt, CartsWrapper } from "./Carts.styled";
 import { ReactComponent as RemoveIcon } from '../../assets/icons/icon-remove-item.svg'
 import useItems from "../../hooks/useItems";
 
@@ -8,7 +8,7 @@ const Carts = ({ item }) => {
 
   return ( 
     <CartsContainer>
-      <CartsName>{nome}</CartsName>
+      <CartsNome>{nome}</CartsNome>
 
       <CartsWrapper>
         <CartsQnt>{qnt}</CartsQnt>

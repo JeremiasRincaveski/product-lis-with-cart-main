@@ -54,7 +54,11 @@ const useItems = () => {
     validaQnt();
   };
 
-  return { items, adicionaItem, removerItem, removerQnt };
+  const newOrder = () => {
+    setItems([])
+  };
+
+  return { items, adicionaItem, removerItem, removerQnt, newOrder };
 };
 
 export default useItems;

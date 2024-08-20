@@ -29,12 +29,12 @@ const Card = ({ deserts }) => {
                 {items?.some(item => item.nome === desert.name && item.qnt > 0) ? 
                   (<>
                     <Decrement 
-                      className="isSelect" 
+                      className="isSelect cursor" 
                       onClick={() => removerQnt(desert.name)}
                     />
                     {items.find(item => item.nome === desert.name).qnt}
                     <Increment
-                     className="isSelect"
+                     className="isSelect cursor"
                      onClick={() => adicionaItem(desert)}
                     />
                   </>)
@@ -42,6 +42,7 @@ const Card = ({ deserts }) => {
                   (<>
                     <span
                       onClick={() => adicionaItem(desert)}
+                      className="cursor"
                     >
                       <Icone />Add to Cart
                     </span>

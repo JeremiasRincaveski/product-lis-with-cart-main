@@ -2,9 +2,20 @@ import { CartCarbonNeutral, CartCarbonNeutralDescription, CartConfirmOrder, Cart
 import useItems from "../../hooks/useItems";
 import Carts from "../Carts/Carts";
 import { ReactComponent as Tree }  from "../../assets/icons/icon-carbon-neutral.svg";
+import { useState } from "react";
+import Modal from "../Modal/Modal";
 
 const Cart = () => {
   const { items } = useItems();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true)
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   return ( 
     <CartContainer>
@@ -27,13 +38,17 @@ const Cart = () => {
             <CartCarbonNeutralDescription>This is a <span>carbon-neutral</span> delivery</CartCarbonNeutralDescription>
           </CartCarbonNeutral>
 
-          <CartConfirmOrder>
+          <CartConfirmOrder onClick={openModal}>
             Confirm Order
           </CartConfirmOrder>
         </>
         : 
           <CartEmpty />
       }
+      <Modal 
+        isModalOpen={isModalOpen}
+        closeModal={closeModal}
+      />
     </CartContainer>
   );
 }

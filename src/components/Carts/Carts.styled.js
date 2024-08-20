@@ -9,7 +9,7 @@ export const CartsContainer = styled.div`
   border-bottom: 2px solid hsl(0, 0%, 97%);
 `;
 
-export const CartsName = styled.p`
+export const CartsNome = styled.p`
   font-weight: 600;
 `;
 
@@ -57,4 +57,8 @@ export const CartsButton = styled.button`
   border-radius: 100%;
   width: 1.1rem;
   height: 1.1rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;

@@ -63,6 +63,7 @@ export const CartConfirmOrder = styled.button`
   padding: 1rem;
   margin-top: 1rem;
   font-size: 1.1rem;
+  cursor: pointer;
 `;
 
 export const CartEmpty = styled.div`

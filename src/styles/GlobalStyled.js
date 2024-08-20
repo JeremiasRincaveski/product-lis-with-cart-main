@@ -19,6 +19,7 @@ const GlobalStyled = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: "Red Hat Text", sans-serif;
+    list-style: none;
   }
 
   #root {

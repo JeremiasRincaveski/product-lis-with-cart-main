@@ -66,6 +66,7 @@ export const CardButton = styled.button`
     display: flex;
     align-items: center;
     gap: .5rem;
+    
   }
 
   svg.isSelect {
@@ -74,6 +75,11 @@ export const CardButton = styled.button`
     height: 18px;
     padding: 3px;
     border-radius: 100%;
+  }
+
+  span.cursor,
+  svg.cursor {
+    cursor: pointer;
   }
 `;
 
